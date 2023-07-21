@@ -64,6 +64,12 @@ namespace Homework
             }
             }
             static void ReadData () {
+            string curFile = @"D:\Downloads\6.1 Исходные материалы\Theme_06\Homework\Skillbox_HomeWork_12.07.23\db.csv";
+            if (File.Exists(curFile) == false){
+                Console.WriteLine("No data");
+                AddData();
+            }
+            else {
             using (StreamReader sr = new StreamReader("db.csv", Encoding.Unicode))
             {
                 string line;
@@ -73,6 +79,7 @@ namespace Homework
                     string[] data = line.Split('#');
                     Console.WriteLine($"{data[0],3}  {data[1],18}  {data[2],29} {data[3],8}  {data[4],7}  {data[5],14} {data[6],19}");
                 }
+            }
             }
             }
         }
